@@ -1,27 +1,29 @@
 # Aprendizados sobre Git
 ###### Estudos feitos no curso [Git e Github Essencial para o Desenvolvedor](https://www.udemy.com/course/curso-de-git-e-github-essencial/)
+##### **Obs**: Alguns comandos aqui são exclusivos do Linux. Recomendo que use o Sistema, ou que utilize o WSL2
 
 <details><summary><strong>Sincronizando repo local com o remoto</strong></summary>
 
-- Crie o repositório no próprio Github, é bem fácil. Depois na sua máquina, entre na sua pasta de repositórios. No terminal digite:  
+- Se você não tem a chave SSH configurada, é bem tranquilo, só seguir esses comandos:
+  - **`ssh-keygen -t ed25519 -C "SEU-EMAIL"`**
+  - Aperte *ENTER* nas próximas 3 perguntas
+  - **`eval "$(ssh-agent -s)"`**
+  - **`ssh-add ~/.ssh/id_ed25519`**
+  - **`cat ~/.ssh/id_ed25519.pub`**
+  - Copie o resultado do comando anterior, que apareceu no terminal. Essa é a sua chave SSH.
+  - Vá até [essa](https://github.com/settings/keys) página, clique em *New SSH key*, coloque o título que quiser, e no campo *key* cole a sua chave. Clique em *Add SSH Key*, e pronto, sua máquina está com a chave SSH configurada.
+ 
+- Pra facilitar, crie o repositório no próprio Github. Depois na sua máquina entre na pasta onde vai guardar os repositórios. No terminal digite:  
   **`git clone UrlDoRepo`**  
-  **`cd Repo`**  
-  **`git config user.name ""`**  
-  **`git config user.email ""`**  
-  **Crie algum arquivo ou altere um existente**  
+  **`cd NomeDoRepo`**  
+  **`git config user.name "SEU-USERNAME"`**  
+  **`git config user.email "SEU-EMAIL"`**  
+  **Crie ou edite algum arquivo**  
   **`git add .`**  
   **`git commit -m "Update"`**  
   **`git push -u origin main`**  
   
-  *(o processo abaixo tem que ser feito duas vezes para não precisar mais)*
-  
-  **Pedirá username e password (ou token se você tem 2FA)**
-  
-  *(só rode o comando abaixo se estiver em máquina pessoal)*
-  
-  **`git config credential.helper store`** pra guardar as credenciais, senão vai ter que colocar login e senha em todo push.
-    
-  *(sempre que mudar algo como username ou nome do repo, entre na pasta .git e faça as alterações no arquivo config, de cada repo)*
+  *(sempre que mudar algo como username ou nome do repo, na sua máquina entre na pasta .git de cada repo e faça as alterações no arquivo config)*
 
 </details>
 
@@ -211,7 +213,7 @@ Permite o compartilhamento de pequenos trechos de código. Há também quem use 
 - Em seguida utilize o comando: `wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
 - O próximo passo é permitir que o NVM seja utilizado do seu perfil de usuário bash com o comando: `source ~/.profile`
 - Agora você pode usar o NVM para mostrar todas as versões do Node.js disponíveis para ser instaladas: `nvm ls-remote`
-- Fique à vontade para escolher a versão que preferir. Por motivos de estabilidade, escola a versão LTS mais atual. Execute: `nvm install {versao}`
+- Fique à vontade para escolher a versão que preferir. Por motivos de estabilidade, baixe a versão LTS mais atual, com o comando `nvm install --lts`
 - Você pode verificar se a instalação ocorreu com sucesso checando a versão do Node.js: `node -v` e `npm -v`
   - Se deseja desinstalar uma versão específica: `nvm uninstall {versao}`
   - Mas se você deseja  desinstalar o NodeJS, primeiro é preciso desativar a aplicação: `nvm deactivate`
@@ -237,30 +239,29 @@ Permite o compartilhamento de pequenos trechos de código. Há também quem use 
 ```json
 {
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Ayu Dark Bordered",
   "editor.fontFamily": "Fira Code",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
   "window.zoomLevel": 1,
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "bracket-pair-colorizer-2.colorMode": "Independent",
-  "bracket-pair-colorizer-2.colors": ["#24a4e6", "#e6a939", "#98281a", "#b7e86d"],
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.guides.highlightActiveBracketPair": true,
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#e6a939",
+    "editorBracketHighlight.foreground2": "#24a4e6",
+    "editorBracketHighlight.foreground3": "#bb80b3",
+    "editorBracketHighlight.foreground4": "#b7e86d"
   },
-  "editor.tabSize": 2,
   "editor.minimap.enabled": false,
   "workbench.startupEditor": "none",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.colorTheme": "Material Theme Ocean High Contrast",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "liveServer.settings.donotShowInfoMsg": true,
-  "liveSassCompile.settings.showOutputWindowOn": "None",
-  "prettier.printWidth": 100
+  "workbench.editor.labelFormat": "short",
+  "breadcrumbs.enabled": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 100,
+  "prettier.semi": false,
+  "prettier.singleQuote": true
 }
 ```
 
