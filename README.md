@@ -227,38 +227,48 @@
   )
   ```
   - Checar o *false* primeiro no condicional
+  - **this** pro primeiro escopo anterior, mais que isso tem que dar a volta
+  - Onde tem **await** tem **async**. E quando usar uma função que tem async/await, tem que transformar o código que está chamando também em **await** **async**
 
  </details>
 
 <details><summary>NodeJS, ExpressJS, EJS</summary>
 <br>  
-  <details><summary>Instalação do NodeJS</summary>
 
-  - Primeiro, baixe o NVM usando wget. Execute: `sudo apt install wget`
-  - Em seguida utilize o comando: `wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
-  - O próximo passo é permitir que o NVM seja utilizado do seu perfil de usuário bash com o comando: `source ~/.profile`
-  - Agora você pode usar o NVM para mostrar todas as versões do Node.js disponíveis para ser instaladas: `nvm ls-remote`
-  - Fique à vontade para escolher a versão que preferir. Por motivos de estabilidade, baixe a versão LTS mais atual, com o comando `nvm install --lts`
-  - Você pode verificar se a instalação ocorreu com sucesso checando a versão do Node.js: `node -v` e `npm -v`
-  - Se deseja desinstalar uma versão específica: `nvm uninstall {versao}`
-    - Mas se você deseja  desinstalar o NodeJS, primeiro é preciso desativar a aplicação: `nvm deactivate`
-    - Em seguida desinstale o Node.js: `nvm uninstall {versao}`
+  - **Instalação** do NodeJS:
+    `sudo apt install wget`
+    `wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
+    `source ~/.profile`
+    Mostrar todas as versões disponíveis: `nvm ls-remote`
+    Por motivos de estabilidade baixe a versão LTS mais atual: `nvm install --lts`
+    Para verificar as versões do NodeJS e NPM: `node -v` `npm -v`
+    Para desinstalar: `nvm deactivate` e depois `nvm uninstall --lts`
+  <br>  
 
-  </details>
-    
   - `npm init -y` pra iniciar um projeto
-  - `npm install {package}` pra baixar um pacote
-    - Se passar no final o parâmetro `--save-dev` você está dizendo pro npm que essa depedência não é crucial, a aplicação funciona sem ela, é só pra fim de desenvolvimento.
+  - `npm i {package}` pra baixar um pacote, exemplo o *Express* `npm i express`
+    - Se passar no final o parâmetro `-D` você está dizendo pro npm que essa depedência não é crucial, a aplicação funciona sem ela, é só pra fim de **desenvolvimento**.
   - Sempre colocar no arquivo *.gitignore* a pasta *node_modules*
   - `npm uninstall {package}` pra deletar um pacote
+  - Quando você clonar um repositório, para que todos pacotes do NodeJS funcione, rode no terminal `npm i`
+  - Use o *Nodemon* pra não precisar toda hora atualizar o server manualmente.
+    - Instalando `npm i nodemon -D`, já que é só pra fim de nos ajudar no desenvolvimento.
+    - No package.json em *main* aponte pro arquivo do servidor; e em *scripts*, adicione `"dev": "nodemon ."`
+    - No terminal rode `npm run dev` (dev se refere ao script adicione alteriormente).
   - `require` pra importar uma função de outro arquivo (o qual precisa do `module.exports = {função}`)
     - Se for passar mais de uma função, melhor criar um objeto com várias funções
   - `ctrl + c` pra parar o servidor
   - Com **ExpressJS** você escreve menos código do que com NodeJS puro, é mais enxuto e escalável
   - Nem sempre sabemos em que porta a aplicação está rodando, então guardamos numa constante a porta, indepedente de qual seja: `const port = process.env.PORT || 8080`
-  - MVC (model - dados, view - visualização, controller - gerenciador dos dados)
   - O Express/Node é meio burrinho praa char o caminho de um diretório, então você precisa utiliza a lib *path*
-  - EJS é uma engine de visualização, você consegue injetar JS no HTML, tornando-o muito mais dinâmico. Uns até chamam de HTML com anabolizantes hahaha 
+  - Por padrão **forms** utilizam o método Get.
+    - O atributo *name* no **form** é o que dá nome as propriedades usadas na requisição
+  <br>  
+
+  - **Arquitetura de Projeto**: cada arquivo/pasta tem que ter seu papel bem definido. Isso ajuda a não ficar com arquivos com centenas ou milhares de linhas, também economiza tempo quando for fazer manutenção, por já saber onde cada coisa está. Deixar tudo separadinho, de acordo com sua "responsabilidade": rotas, models, views, controllers, etc.
+  - Padrão **MVC** (model - dados, view - visualização, controller - gerenciador dos dados)
+  - É uma convenção ter uma pasta public, para imagens, styles, scripts front, etc, coisas que podem ser públicas e que *não vão mudar com muita frequência*.
+  - EJS é uma engine de visualização, com ele conseguimos de uma maneira fácil e simples transportar dados do back-end para o front-end, basicamente conseguimos utilizar códigos em javascript no html de nossas páginas.
   - `<%- include('{partial}') %>` pra inserir uma partial `<% {código} %>` pra inserir código `<%= {variável} %>` pra inserir um valor
     - Esse valor antes tem que ser enviado pela rota dentro do render
     - Se esse valor o JS tiver HTML dentro, você precisa fechar o EJS antes de começar o HTML, e abrir de novo quando começar o JS de novo
