@@ -375,7 +375,7 @@
 <br />
   <details><summary><strong>Sincronizando repo local com o remoto</strong></summary>
 
-  - Se você não tem a chave SSH configurada, é bem tranquilo, só seguir esses comandos:
+  - Se você não tem a chave SSH configurada, é bem tranquilo, só seguir esses comandos (*só faça isso se a máquina for sua, já que a chave SSH fica salva no sistema*):
     - **`ssh-keygen -t ed25519 -C "SEU-EMAIL"`**
     - Aperte *ENTER* nas próximas 3 perguntas
     - **`eval "$(ssh-agent -s)"`**
@@ -384,14 +384,22 @@
     - Copie o resultado do comando anterior, que apareceu no terminal. Essa é a sua chave SSH.
     - Vá até [essa](https://github.com/settings/keys) página, clique em *New SSH key*, coloque o título que quiser, e no campo *key* cole a sua chave. Clique em *Add SSH Key*, e pronto, sua máquina está com a chave SSH configurada.
 
-  - Pra facilitar, crie o repositório no próprio Github. Depois na sua máquina entre na pasta onde vai guardar os repositórios. No terminal digite:
-    **`git clone UrlDoRepo`**
+  - Configure globalmente seu user com os repos. Em qualquer lugar rode no terminal: **`git config --global user.name "SEU-USERNAME"`** e **`git config --global user.email "SEU-EMAIL"`** 
+
+  - Existem duas formas pra prosseguir:
+    - Se você criou o repositório no próprio Github, ou está sincronizando de lá. Entre na pasta onde vai guardar os repositórios e no terminal rode:
+    **`git clone git@github.com:SeuUser/NomeDoRepo.git`**
     **`cd NomeDoRepo`**
-    **`git config user.name "SEU-USERNAME"`**
-    **`git config user.email "SEU-EMAIL"`**
     **Crie ou edite algum arquivo**
     **`git add .`**
-    **`git commit -m "Update"`**
+    **`git commit -m "Init"`**
+    **`git push -u origin main`**
+
+    - Se você criou a pasta no PC e quer sincronizar com o Github. Crie no Github um repositório, vazio mesmo, com o mesmo nome do repo do PC. Entre na pasta do repo e no terminal rode:
+    **`git init`**
+    **`git remote add origin git@github.com:SeuUser/NomeDoRepo.git`**
+    **`git add .`**
+    **`git commit -m "Init"`**
     **`git push -u origin main`**
 
     *(sempre que mudar algo como username ou nome do repo, na sua máquina entre na pasta .git de cada repo e faça as alterações no arquivo config)*
@@ -435,7 +443,7 @@
   - Sempre que você fizer um commit, irá gerar um hash id, um identificador, exemplo **`[main 9da4dd5]`**
   - Quando esquecer de mandar certas mudanças pro mesmo commit, ou esquecer arquivos, etc, **antes do push**, você pode usar **`git commit --amend -m "mensagem"`** para fazer essas adições ao último commit.
   - Quando você adiciona um arquivo, deixa ele tracked, mas se arrepende, quer remover do track do Git, **`git restore --staged <file>`**
-<br />  
+<br />
 
 - Log/Histórico:
   - **`git log`** mostra o log de commits, autor, email, timestamp e hash.
@@ -448,7 +456,7 @@
   - **`git log --oneline`** mostra as informações de forma reduzida, o hash e mensagem. Inclusive pode combinar isso com o de cima.
   - Você pode procurar por datas, exemplo: **`git log --before="2020-12-13" | git log --after="2020-12-10" | git log --after="2020-12-01" --before="2020-12-12" | git log --since="7 days ago"` |** (Lembrando que também pode mesclar com o ante anterior).
   - Pode pesquisar pelo autor do commit **`git log --author="Gustavo"`**
-<br />  
+<br />
 
 - Checkout
   - Através do hash id, conseguimos desafazer mudanças. Lembre-se que um commit é um snapshot, uma foto do projeto, você pode entrar naquela foto e voltar pro momento, igual Life is Strange 1 hahahaha.
@@ -461,14 +469,14 @@
   - Para fazer isso com apenas um arquivo **`git checkout -- <filename>`**
   - Para fazer isso depois do arquivos estarem tracked: **`git checkout HEAD -- .`**
   - Para fazer isso com apenas um arquivo **`git checkout HEAD -- <filename>`**
-<br />  
+<br />
 
 - Revert e Reset
   - **Revert**: não desfaz um commit, ele reverte o que foi feito e criando um novo commit. Reverte. **`git revert <HashDoCommit>`**
     - Não esqueça de dar o **push** pro commit ir pro bare.
   - **Reset:** remove commits. **`git reset HEAD~1`**
     - **`git push -f -u origin main`**
-<br />  
+<br />
 
 - Branchs
   - Quando você cria um projeto no git, você tem seu **branch main**, que seria o **tronco** da árvore. É perigoso ficar commitando no tronco, pois se fizer algo errado, vai estragar toda árvore. Por isso você tem o conceito de **branchs secundárias**, que seriam os **galhos**, as **ramificações**. Então você está lá desenvolvendo certa **feature** do projeto, se ela der errado, você simplesmente joga o galho fora, corta ele. Mas se der certo, você faz um **merge**, **junta** o galho ao tronco, junta a branch secundária com a feature para a branch main.
@@ -482,7 +490,7 @@
     - (Lembrando que após o merge, a branch absorvida não desaparece, ela continua viva e independente). Ah, e quando tal branch recebe o merge, ela absorve também os commit feitos, todo log etc
   - **Rebase** faz quase a mesma coisa que **merge**, mas deixa os commits em ordem, reoorganiza a ordem de todos commits do projeto. **`git rebase NomeDaBranch`**
     - Não é super indicado, principalmente em pair programming e em empresa. É até legal para projetos pessoais, mas melhor não usar.
-<br />  
+<br />
 
 - Clone, Push, Fetch, Pull e Tag
   - Pra clonar um repositório --> **`git clone urlDoRepo .`** (o ponto indica pra clonar dentro do repo que está)
@@ -496,7 +504,7 @@
     - Inclusive, você pode alternar para tags, para "dar uma olhada", igual faz em branchs. **`git checkout versaoTal`**
     - Você pode usar isso pra criar uma branch a partir de tal tag, tpo pra corrigir bugs de tal versão, etc. **`git switch -c <new-branch-name>`**
   - **Bare repository**: Significa repositório central, remoto. Lembrando que o git é descentralizado, mas é comum que tenhamos um repositório central, ainda mais quando trabalhamos em equipe.
-<br />  
+<br />
 
 - Issue, Fork e Pull Request
   - **Issue:** quando uma pessoa acha um problema em um projeto seu, pode reportar uma **issue**. Você também pode fazer isso com os outros. Mas quando reportar uma issue, pesquise bem antes, pra não criar uma que já foi resolvida.
@@ -505,7 +513,7 @@
   - **Pull request:** é uma requisição para que o owner aceite as alterações feitas no se fork para o bare. Você também pode passar no título do pull request **`Closes #IssueID`** para que além de aceitar, fechar uma issue dele.
     - É uma boa prática ao invés de dar um merge com pull request, você dar um fetch (lembrando que o fetch baixa mas sem fundir), pra testar se realmente está tudo certo.  **`git fetch origin pull/IdPullRequest/head:NomeDaBranch`**
     - Aí você olha o log, verifica o arquivo mexido, se está legal. E então vai no github e confirma o merge do pull request.
-<br />  
+<br />
 
 - Gist
   - Pequenos trechos de códigos que você cria pra você mesmo ou outras pessoas. Snippets.
