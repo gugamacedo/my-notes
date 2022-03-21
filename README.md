@@ -499,6 +499,7 @@
   - O **fetch** baixa os arquivos, mas sem trackear. **`git fetch`** aí depois tem que usar o git rebase pro arquivo organizar os arquivos e commits **`git rebase`**
     - Método menos utilizado.
   - O **pull** faz isso acima em uma tacada só **`git pull origin main`** (vai abrir um editor de código, só digitar ^O + enter + ^X)
+    - Se acontecer o erro **refusing to merge unrelated histories**, rode **`git pull origin main --allow-unrelated-histories`**
   - A **tag** é um estado da aplicação, como se fosse um release, a versão. **`git tag versaoTal`**
     - Mas por enquanto isso só está no repo local. Para mandar pro repo remoto, para que todos users saibam da release **`git push origin versaoTal`**
     - Inclusive, você pode alternar para tags, para "dar uma olhada", igual faz em branchs. **`git checkout versaoTal`**
