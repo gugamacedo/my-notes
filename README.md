@@ -96,7 +96,7 @@
     E se você estpa se perguntando "mas as rotas não são feitas no backend com o **Node**?" Primeiro que se não tiver back, isso já nem importa. Segundo que no caso da estrutura de nossos projetos, sempre faremos a **API-Restful** separada do front, fazendo requisições pelo frontend da aplicação. Então nesse caso as rotas podem perfeitamente serem feitas no frontend, mesmo existindo backend.
 
 - **Material.UI** é uma biblioteca com components prontos e estilizados, para aplicações React, baseado no tema _Material_ da _Google_. Link: [mui.com/pt/components/](https://mui.com/pt/components/)
-  - Instalação `npm install @mui/material @mui/icons-material @emotion/react @emotion/styled`
+  - Instalação `npm install @mui/material @mui/icons-material @mui/styles @emotion/react @emotion/styled`
   - A biblioteca `icons-material` não permite desestruturação
 - **Estudar bastante as props de cada component**
 - **useStyles**: para aplicar CSS dentro do JS 🤯🤯🤯 Se o CSS for grande, normalmente se cria uma **pasta** pra cada component que será estilizado, com um arquivo pro component e outro pro estilo dele, ex: `Header/Header.js` e `Header/Header.style.js`
@@ -104,7 +104,7 @@
   - No arquivo do **component style**:
 
   ```Javascript
-  import { makeStyles } from '@material-ui/core/styles'
+  import { makeStyles } from '@mui/styles'
 
   const useStyles = makeStyles(() => ({
     // declarando os filhos como objetos vazios no começo
@@ -162,7 +162,7 @@
 - No **Grid** você consegue passar também propriedades de **flex** como **props**
 - Para fazer o **`@media query`** (responsividade), tem o `theme.breakpoints` no hook **useStyles**. **Obs:** tem que colocar em ordem por tamanho do maior pro menor, se não vai bugar. Um exemplo de uso:
   ```Javascript
-  import { makeStyles } from '@material-ui/core/styles'
+  import { makeStyles } from '@mui/styles'
 
   const useStyles = makeStyles((theme) => ({ // pegando o theme
     cards: {
