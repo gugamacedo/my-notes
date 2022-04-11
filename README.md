@@ -263,7 +263,8 @@
 - **Rotas dinâmicas:** se você colocar o nome do arquivo entre `[ ]` você pode usar o hook **useRouter** que permite a url receber uma query diferente do nome dela. Continuando do exemplo acima, a página de _óculos_ além de receber na url _glasses_, pode receber um **id** tipo 13579, ficando `localhost/products/13579`. Isso vindo numa estrutura **chave: [valor]**, ex `glasses: ['glasses']`. Para habilitar você roda `import { useRouter } from 'next/router'`, depois para acessar `router.query.glasses`.
   - Também é possível habilitar para receber depois da barra, fazendo um **spread** no nome do arquivo, no começo, dentro do `[ ]`. Ficaria `localhost/products/glasses/13579`
 - Você pode customizar o arquivo **`_app.js`**, se quiser adicionar um Template Global por exemplo, ou components globais (um menu por exemplo). Também dá pra customizar o arquivo **`_document.js`**, adicionando coias que faltam no html, por exemplo tags na _Head_, tags de _meta_, tags de _script_, etc.
-- Na pasta **`src`** colocaremos nossos, components, theme, models, helpers.
+- Na pasta **`src`** colocaremos: *theme*, *components*, *contexts*, *utils/helpers*, *templates*, *controllers*, *models*, etc.
+- O Next.js pode servir arquivos estáticos, como imagens, na pasta **public** no diretório raiz. Arquivos dentro de *public* podem ser referenciados pelo seu código a partir da URL base (/). Por exemplo, se você adicionar uma imagem a `public/logo.png`, o código a seguir acessará a imagem `<Image src="/logo.png" alt="logo" width="64" height="64" />`
 
 </details>
 
