@@ -174,20 +174,33 @@
     [theme.breakpoints.down(1100)] : { // pode colocar um número se não quiser usar as props de medida
       cards: {
         gridTemplateColumns: '1fr 1fr',
-      }  
+      } 
     },
 
     [theme.breakpoints.down('xs')] : {
       cards: {
         gridTemplateColumns: '1fr',
-      }  
+      } 
     }
     
   }))
 
   export default useStyles
   ```
-  - Se o **component** outras classes, dá pra usar normal. Lembrando que como um princípio no React é a **modularização** não é uma boa ideia fazer um arquivo style JS com a responsividade de tudo
+  - Para fazer o `@media query` na **prop sx**é bem parecido com o CSS normal: 
+  ```Javascript
+  <Container
+    sx={{
+      width: '50%',
+
+      '@media screen and (max-width: 768px)': {
+        width: '90%',
+      },
+
+    }}
+  /> 
+  ```
+  - Lembrando que um dos princípios no React é a **modularização**, então não é uma boa ideia fazer um arquivo style JS com a responsividade de toda aplicação
 - É uma boa prática organizar o código na seguinte ordem: definições de hooks, depois states, os useEffect, e por fim os Handle.
 - **CSS module**: uma maneira alternativa de fazer o CSS no React. Basicamente todo arquivo de CSS terá um `.module` antes de `.css` e no arquivo JS o import será assim: `import style from './Algo.module.css'`. E na hora de definir o _className_ será um objeto: `className={style.classe}`
 - **Styled Components**: traduzindo **Componentes estilizados**. É simplesmente isso hahahaha Você faz o CSS dentro do JS, no mesmo arquivo do component. Pra utilizar tem que rodar no terminal `npm install --save styled-components`. Depois no arquivo do component você importa assim `import styled from 'styled-components'`. Depois cria uma `const` com o nome do componente que será estilizado (components sempre em letra maiúscula), ex abaixo, e usa o componente normalmentecomo tag, podendo abrir, passar props, usar propriedades do próprio elemento HTML, etc.
