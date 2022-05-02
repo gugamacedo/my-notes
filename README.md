@@ -287,23 +287,16 @@
 - **Instalação** do NodeJS. Primeiro verifique se você possui o **[curl](https://curl.se/)** instalado rodando no terminal o comando: `curl --version`
   - Caso ele retorne a versão, pode pular para o próximo passo. 
   - Caso não, basta rodar o comando: `sudo apt install curl`
-  
-  <details><summary>Usando NodeSource</summary>
-    
-  - Com o **curl** instalado, execute o comando de instalação da versão LTS mais recente disponível: `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+  - Usando NodeSource:
+    - Com o **curl** instalado, execute o comando de instalação da versão LTS mais recente disponível: `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs`
-  - Feche o terminal e abra novamente para as alterações fazerem efeito.
-    </details>
-  
-    <details><summary>Usando NVM</summary>
-    
+  - Usando NVM:
     - Com o **curl** instalado, execute o comando `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
     - `source ~/.profile`
     - Mostrar todas as versões disponíveis: `nvm ls-remote`
     - Por motivos de estabilidade baixe a versão LTS mais atual: `nvm install --lts`
-    </details>
-  
-- Para verificar se o **Node** e **NPM** estão instalados rode `node -v` e `npm -v`
+  - Feche o terminal e abra novamente para as alterações fazerem efeito.      
+  - Para verificar se o **Node** e **NPM** estão instalados rode `node -v` e `npm -v`
 - `npm init -y` pra iniciar um projeto
 - `npm i {package}` pra baixar um pacote, exemplo o _Express_ `npm i express`
   - Se passar no final o parâmetro `-D` você está dizendo pro npm que essa depedência não é crucial, a aplicação funciona sem ela, é só pra fim de **desenvolvimento**.
@@ -467,7 +460,17 @@ sudo apt-get install -y nodejs`
 <br />
   
   - Para instalar a fonte FiraCode, no terminal rode: `sudo apt update && sudo apt install fonts-firacode`
-
+  - Extensões usadas no momento: 
+    - vscode-styled-components
+    - prettier
+    - material icon theme
+    - markdown preview enhanced
+    - live server
+    - live sass compiler Glenn
+    - ESLint
+    - Ayu theme
+    - auto rename tag
+  
 ```json
 {
   "workbench.iconTheme": "material-icon-theme",
@@ -493,7 +496,10 @@ sudo apt-get install -y nodejs`
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.printWidth": 100,
   "prettier.semi": false,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "liveServer.settings.donotShowInfoMsg": true
 }
 ```
 
