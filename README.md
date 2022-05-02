@@ -284,17 +284,26 @@
 <details><summary><img src="https://img.shields.io/badge/Node-1c562b?style=flat-square&logo=node.js&logoColor=white" alt="Node" style="height: 20px;"> <img src="https://img.shields.io/badge/MongoDB-%23107C10.svg?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" style="height: 20px;"> <img src="https://img.shields.io/badge/Express-000000.svg?style=flat-square&logo=express&logoColor=whit" alt="Express" style="height: 20px;"> <img src="https://img.shields.io/badge/<‰%20EJS-a91e50.svg?style=flat-square&logoColor=white" alt="EJS" style="height: 20px;"></summary>
 <br />
 
-- **Instalação** do NodeJS:
-  - Verifique se você possui o **[curl](https://curl.se/)** instalado rodando no terminal o comando: `curl --version`
-    - Caso ele retorne a versão, pode pular para o próximo passo. 
-    - Caso não, basta rodar o comando: `sudo apt install curl`
+- **Instalação** do NodeJS. Primeiro verifique se você possui o **[curl](https://curl.se/)** instalado rodando no terminal o comando: `curl --version`
+  - Caso ele retorne a versão, pode pular para o próximo passo. 
+  - Caso não, basta rodar o comando: `sudo apt install curl`
+  
+  <details><summary>Usando NodeSource</summary>
+    
   - Com o **curl** instalado, execute o comando de instalação da versão LTS mais recente disponível: `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs`
   - Feche o terminal e abra novamente para as alterações fazerem efeito.
-  - Para verificar se o **Node** e **NPM** estão instalados rode `node -v` e `npm -v`
-  - Para desinstalar: `nvm deactivate` e depois `nvm uninstall --lts`
-  <br />
-
+    </details>
+  
+    <details><summary>Usando NVM</summary>
+    
+    - Com o **curl** instalado, execute o comando `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
+    - `source ~/.profile`
+    - Mostrar todas as versões disponíveis: `nvm ls-remote`
+    - Por motivos de estabilidade baixe a versão LTS mais atual: `nvm install --lts`
+    </details>
+  
+- Para verificar se o **Node** e **NPM** estão instalados rode `node -v` e `npm -v`
 - `npm init -y` pra iniciar um projeto
 - `npm i {package}` pra baixar um pacote, exemplo o _Express_ `npm i express`
   - Se passar no final o parâmetro `-D` você está dizendo pro npm que essa depedência não é crucial, a aplicação funciona sem ela, é só pra fim de **desenvolvimento**.
