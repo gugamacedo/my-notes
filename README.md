@@ -285,13 +285,14 @@
 <br />
 
 - **Instalação** do NodeJS:
-  `sudo apt install wget`
-  `wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
-  `source ~/.profile`
-  Mostrar todas as versões disponíveis: `nvm ls-remote`
-  Por motivos de estabilidade baixe a versão LTS mais atual: `nvm install --lts`
-  Para verificar as versões do NodeJS e NPM: `node -v` `npm -v`
-  Para desinstalar: `nvm deactivate` e depois `nvm uninstall --lts`
+  - Verifique se você possui o **[curl](https://curl.se/)** instalado rodando no terminal o comando: `curl --version`
+    - Caso ele retorne a versão, pode pular para o próximo passo. 
+    - Caso não, basta rodar o comando: `sudo apt install curl`
+  - Com o **curl** instalado, execute o comando de instalação da versão LTS mais recente disponível: `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs`
+  - Feche o terminal e abra novamente para as alterações fazerem efeito.
+  - Para verificar se o **Node** e **NPM** estão instalados rode `node -v` e `npm -v`
+  - Para desinstalar: `nvm deactivate` e depois `nvm uninstall --lts`
   <br />
 
 - `npm init -y` pra iniciar um projeto
