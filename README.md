@@ -2,7 +2,7 @@
 
 ###### Obs: Alguns comandos aqui são exclusivos do Linux
 
-<details><summary><img src="https://img.shields.io/badge/React-08081d.svg?style=flat-square&logo=react&logoColor=%2361DAFB" alt="React" style="height: 20px;"> <img src="https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=react-router&logoColor=white" alt="React Router" style="height: 20px;"> </summary>
+<details><summary><a href="#"><img src="https://img.shields.io/badge/React-08081d.svg?style=flat-square&logo=react&logoColor=%2361DAFB" alt="React" style="height: 20px;"> <img src="https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=react-router&logoColor=white" alt="React Router" style="height: 20px;"></a> </summary>
 <br />
 
 - No React para iniciar um projeto é `npx create-react-app nome-do-projeto`
@@ -138,7 +138,7 @@
   - O uso é bem fácil, a documentação é ótima e tranquila
 </details>
 
-<details><summary><img src="https://img.shields.io/badge/Material.UI-%230081CB.svg?style=flat-square&logo=mui&logoColor=white" alt="MUI" style="height: 20px;"> </summary><br />
+<details><summary><a href="#"><img src="https://img.shields.io/badge/Material.UI-%230081CB.svg?style=flat-square&logo=mui&logoColor=white" alt="MUI" style="height: 20px;"></a> </summary><br />
 
   - **Material.UI** é uma biblioteca com components prontos e estilizados, para aplicações React, baseado no tema _Material_ da _Google_. Link: [mui.com/pt/components/](https://mui.com/pt/components/)
   - Instalação `npm install @mui/material @mui/icons-material @mui/styles @emotion/react @emotion/styled`
@@ -265,7 +265,7 @@
   
 </details>
   
-<details><summary><img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white" alt="Next" style="height: 20px;"></summary>
+<details><summary><a href="#"><img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white" alt="Next" style="height: 20px;"></a></summary>
 <br />
 
 - No Next para iniciar um projeto é `npx create-next-app nome-do-projeto`
@@ -286,7 +286,7 @@
 
 </details>
 
-<details><summary><img src="https://img.shields.io/badge/Node-1c562b?style=flat-square&logo=node.js&logoColor=white" alt="Node" style="height: 20px;"> <img src="https://img.shields.io/badge/MongoDB-%23107C10.svg?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" style="height: 20px;"> <img src="https://img.shields.io/badge/Express-000000.svg?style=flat-square&logo=express&logoColor=whit" alt="Express" style="height: 20px;"> <img src="https://img.shields.io/badge/<‰%20EJS-a91e50.svg?style=flat-square&logoColor=white" alt="EJS" style="height: 20px;"></summary>
+<details><summary><a href="#"><img src="https://img.shields.io/badge/Node-1c562b?style=flat-square&logo=node.js&logoColor=white" alt="Node" style="height: 20px;"> <img src="https://img.shields.io/badge/MongoDB-%23107C10.svg?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" style="height: 20px;"> <img src="https://img.shields.io/badge/Express-000000.svg?style=flat-square&logo=express&logoColor=whit" alt="Express" style="height: 20px;"> <img src="https://img.shields.io/badge/<‰%20EJS-a91e50.svg?style=flat-square&logoColor=white" alt="EJS" style="height: 20px;"></a></summary>
 <br />
 
 - **Instalação** do NodeJS. Primeiro verifique se você possui o **[curl](https://curl.se/)** instalado rodando no terminal o comando: `curl --version`
@@ -375,7 +375,7 @@ sudo apt-get install -y nodejs`
 
 </details>
 
-<details><summary><img src="https://img.shields.io/badge/JavaScript-29334C.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E" alt="Javascript" style="height: 20px;"> <img src="https://img.shields.io/badge/CSS-%231572B6.svg?style=flat-square&logo=css3&logoColor=white" alt="JavasCSScript" style="height: 20px;"> <img src="https://img.shields.io/badge/SCSS-f6538c.svg?style=flat-square&logo=SASS&logoColor=white" alt="SCSS" style="height: 20px;"></summary>
+<details><summary><a href="#"><img src="https://img.shields.io/badge/JavaScript-29334C.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E" alt="Javascript" style="height: 20px;"> <img src="https://img.shields.io/badge/CSS-%231572B6.svg?style=flat-square&logo=css3&logoColor=white" alt="JavasCSScript" style="height: 20px;"> <img src="https://img.shields.io/badge/SCSS-f6538c.svg?style=flat-square&logo=SASS&logoColor=white" alt="SCSS" style="height: 20px;"></a></summary>
 <br />
 
 - Javascript:
@@ -458,7 +458,7 @@ sudo apt-get install -y nodejs`
 
 </details>
 
-<details><summary><img src="https://img.shields.io/badge/VS%20Code-0078d7.svg?style=flat-square&logo=visual-studio-code&logoColor=white" alt="SCSS" style="height: 20px;"></summary>
+<details><summary><a href="#"><img src="https://img.shields.io/badge/VS%20Code-0078d7.svg?style=flat-square&logo=visual-studio-code&logoColor=white" alt="SCSS" style="height: 20px;"></a></summary>
 <br />
   
   - Para instalar a fonte FiraCode, no terminal rode: `sudo apt update && sudo apt install fonts-firacode`
@@ -507,7 +507,7 @@ sudo apt-get install -y nodejs`
 
 </details>
 
-<details><summary><img src="https://img.shields.io/badge/GIT-%23F05033.svg?style=flat-square&logo=git&logoColor=white" alt="Git" style="width: 50px"></summary>
+<details><summary><a href="#"><img src="https://img.shields.io/badge/GIT-%23F05033.svg?style=flat-square&logo=git&logoColor=white" alt="Git" style="width: 50px"></a></summary>
 <br />
   <details><summary><strong>Sincronizando repo local com o remoto</strong></summary>
 
