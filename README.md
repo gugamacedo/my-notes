@@ -138,7 +138,8 @@
   - O uso é bem fácil, a documentação é ótima e tranquila
 </details>
 
-<details><summary><a href="#"><img src="https://img.shields.io/badge/Material.UI-%230081CB.svg?style=flat-square&logo=mui&logoColor=white" alt="MUI" style="height: 20px;"></a> </summary><br />
+<details><summary><a href="#"><img src="https://img.shields.io/badge/Material.UI-%230081CB.svg?style=flat-square&logo=mui&logoColor=white" alt="Material UI" style="height: 20px;"> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" alt="Styled Components" style="height: 20px;">
+</a> </summary><br />
 
   - **Material.UI** é uma biblioteca com components prontos e estilizados, para aplicações React, baseado no tema _Material_ da _Google_. Link: [mui.com/pt/components/](https://mui.com/pt/components/)
   - Instalação `npm install @mui/material @mui/icons-material @mui/styles @emotion/react @emotion/styled`
@@ -246,9 +247,15 @@
   /> 
   ```
   - Lembrando que um dos princípios no React é a **modularização**, então não é uma boa ideia fazer um arquivo style JS com a responsividade de toda aplicação
-- É uma boa prática organizar o código na seguinte ordem: definições de hooks, depois states, os useEffect, e por fim os Handle.
+- É uma **boa prática** organizar o código na seguinte ordem: definições de hooks, depois states, e por fim os Handle.
+- Quando está colocando o `color` nas props de Typography, tem que ser `textPrimary` ao invés de `primary`
 - **CSS module**: uma maneira alternativa de fazer o CSS no React. Basicamente todo arquivo de CSS terá um `.module` antes de `.css` e no arquivo JS o import será assim: `import style from './Algo.module.css'`. E na hora de definir o _className_ será um objeto: `className={style.classe}`
-- **Styled Components**: traduzindo **Componentes estilizados**. É simplesmente isso hahahaha Você faz o CSS dentro do JS, no mesmo arquivo do component. Pra utilizar tem que rodar no terminal `npm install --save styled-components`. Depois no arquivo do component você importa assim `import styled from 'styled-components'`. Depois cria uma `const` com o nome do componente que será estilizado (components sempre em letra maiúscula), ex abaixo, e usa o componente normalmentecomo tag, podendo abrir, passar props, usar propriedades do próprio elemento HTML, etc.
+- **Styled Components**: traduzindo **Componentes estilizados**. É simplesmente isso hahahaha Você faz o CSS dentro do JS, no mesmo arquivo do component. 
+  - Para aplicações **React**: rodar no terminal `npm install --save styled-components`. 
+  - Para aplicações **Next:** em aplicações Next para que ocorra de fato o SSR, você tem que criar o projeto com todas configs necessárias: `npx create-next-app --example with-styled-components my-app`
+    - Ele vai trazer todas configs necessárias, pois sem elas sua aplicação vai trazer do server a página sem estilos e só vai estilizar quando estiver no lado do client, perdendo todo sentido do SSR do Next. 
+  - No arquivo do component você importa assim `import styled from 'styled-components'`. 
+  - Depois cria uma `const` com o nome do componente que será estilizado (components sempre em letra maiúscula), ex abaixo, e usa o componente normalmentecomo tag, podendo abrir, passar props, usar propriedades do próprio elemento HTML, etc.
 
   ```Javascript
   const Square = styled.div`
@@ -261,8 +268,8 @@
     <span>teste</span>
   </Square>
   ```
-- Quando está colocando o `color` nas props de Typography, tem que ser `textPrimary` ao invés de `primary`
-  
+  - Se quiser importar alguma config do theme em alguma propriedade CSS, puxa assim `${props => props.theme.colors.primary}`
+
 </details>
   
 <details><summary><a href="#"><img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white" alt="Next" style="height: 20px;"></a></summary>
